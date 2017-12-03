@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.littledroplets.mapper.UserMapper">
+	<insert id="saveUser" parameterType="com.littledroplets.Bean.User" >
+	    insert into user(created_time, password, user_name) values (#{createdTime}, #{userName}, #{password})
+	</insert>
+	
+	<select id="findByUserName" resultType="com.littledroplets.Bean.User" parameterType="java.lang.String">
+	    select * from user where username = ${_parameter}
+	</select>
+	
+	<select id="findAllUsers" resultType="com.littledroplets.Bean.User">
+	    select * from user
+	</select>
+</mapper>
